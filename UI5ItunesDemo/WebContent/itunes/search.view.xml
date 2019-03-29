@@ -1,0 +1,69 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:itunes="itunes.customControls"
+		controllerName="itunes.search" xmlns:html="http://www.w3.org/1999/xhtml">
+		<App>
+		<pages>
+			<Page title="Itunes">
+				<subHeader>
+					<Toolbar>
+					<SearchField id="search" placeholder="Search" search="onSearch">
+						<tooltip/>
+						<!-- sap.ui.core.TooltipBase -->
+						<customData/>
+						<!-- sap.ui.core.CustomData -->
+						<layoutData/>
+						<!-- sap.ui.core.LayoutData -->
+						<dependents/>
+						<!-- sap.ui.core.Control -->
+						<suggestionItems/>
+						<!-- sap.m.SuggestionItem -->
+					</SearchField>
+					</Toolbar>
+				</subHeader>
+				<content>
+					<Table id="music" items="{/results}">
+						<tooltip/>
+						<!-- sap.ui.core.TooltipBase -->
+						<customData/>
+						<!-- sap.ui.core.CustomData -->
+						<layoutData/>
+						<!-- sap.ui.core.LayoutData -->
+						<dependents/>
+						<!-- sap.ui.core.Control -->
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Image id="image" src="{artworkUrl30}"/>
+									<Text text="{trackName}"/>
+									<Text text="{artistName}"/>
+									<itunes:AudioPlayer src="{previewUrl}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<!-- sap.m.ListItemBase -->
+						<swipeContent/>
+						<!-- sap.ui.core.Control -->
+						<headerToolbar/>
+						<!-- sap.m.Toolbar -->
+						<infoToolbar/>
+						<!-- sap.m.Toolbar -->
+						<columns>
+							<Column width="12em">
+								<Text text="Cover"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Title"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+								<Text text="Artist Name"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+								<Text text="Listen"/>
+							</Column>
+						</columns>
+						<!-- sap.m.Column -->
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</core:View>
